@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Alert, ScrollView, StyleSheet, View } from "react-native";
+import { Alert, StyleSheet } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { AppButton } from "../components/AppButton";
 import { AppText } from "../components/AppText";
-import { ProgressBar } from "../components/ProgressBar";
+import { ScreenContainer } from "../components/ScreenContainer";
 import { getLessonById } from "../data/curriculum";
+import { ActivityFooter } from "../features/activity/ActivityFooter";
 import { ActivityRenderer } from "../features/activity/ActivityRenderer";
+import { LessonHeader } from "../features/lesson/LessonHeader";
 import { RootStackParamList } from "../navigation/types";
 import { markLessonCompleted } from "../services/progressService";
-import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Activity">;
@@ -23,14 +24,14 @@ export function ActivityScreen({ navigation, route }: Props) {
 
   if (!lesson) {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScreenContainer>
         <AppText variant="heading">Lesson tidak ditemukan</AppText>
         <AppButton
           title="Kembali"
           variant="secondary"
           onPress={() => navigation.goBack()}
         />
-      </ScrollView>
+      </ScreenContainer>
     );
   }
 
@@ -39,14 +40,14 @@ export function ActivityScreen({ navigation, route }: Props) {
 
   if (!currentActivity) {
     return (
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScreenContainer>
         <AppText variant="heading">Aktivitas tidak ditemukan</AppText>
         <AppButton
           title="Kembali"
           variant="secondary"
           onPress={() => navigation.goBack()}
         />
-      </ScrollView>
+      </ScreenContainer>
     );
   }
 
@@ -82,16 +83,13 @@ export function ActivityScreen({ navigation, route }: Props) {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <View style={styles.header}>
-        <AppText variant="small" color={colors.textMuted}>
-          {currentIndex + 1} / {activeLesson.activities.length}
-        </AppText>
-
-        <AppText variant="heading">{activeLesson.title}</AppText>
-
-        <ProgressBar progress={progress} />
-      </View>
+    <ScreenContainer contentStyle={styles.container}>
+      <LessonHeader
+        title={activeLesson.title}
+        currentActivityNumber={currentIndex + 1}
+        totalActivities={activeLesson.activities.length}
+        progress={progress}
+      />
 
       <ActivityRenderer
         activity={currentActivity}
@@ -99,33 +97,18 @@ export function ActivityScreen({ navigation, route }: Props) {
         onSelectAnswer={setSelectedAnswer}
       />
 
-      <View style={styles.footer}>
-        <AppButton
-          title="Sebelumnya"
-          variant="secondary"
-          disabled={isFirstActivity}
-          onPress={goToPreviousActivity}
-        />
-
-        <AppButton
-          title={isLastActivity ? "Selesaikan Lesson" : "Lanjut"}
-          onPress={goToNextActivity}
-        />
-      </View>
-    </ScrollView>
+      <ActivityFooter
+        isFirstActivity={isFirstActivity}
+        isLastActivity={isLastActivity}
+        onPrevious={goToPreviousActivity}
+        onNext={goToNextActivity}
+      />
+    </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    padding: spacing.lg,
     gap: spacing.lg,
-  },
-  header: {
-    gap: spacing.md,
-  },
-  footer: {
-    gap: spacing.md,
-    paddingBottom: spacing.xl,
   },
 });

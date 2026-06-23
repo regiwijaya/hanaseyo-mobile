@@ -1,28 +1,32 @@
 import React from "react";
-import { ScrollView, StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { AppButton } from "../components/AppButton";
 import { AppCard } from "../components/AppCard";
 import { AppText } from "../components/AppText";
+import { ScreenContainer } from "../components/ScreenContainer";
+import { SectionHeader } from "../components/SectionHeader";
+import { StatusBadge } from "../components/StatusBadge";
+import { RootStackParamList } from "../navigation/types";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
-import { RootStackParamList } from "../navigation/types";
 
 type Props = NativeStackScreenProps<RootStackParamList, "Solo">;
 
 export function SoloScreen({ navigation }: Props) {
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <AppText variant="heading">Mode Solo</AppText>
-
-      <AppText color={colors.textMuted}>
-        Belajar mandiri berdasarkan kurikulum yang tersusun dari dasar sampai
-        lanjutan.
-      </AppText>
+    <ScreenContainer>
+      <SectionHeader
+        title="Mode Solo"
+        subtitle="Belajar mandiri berdasarkan kurikulum yang tersusun dari dasar sampai lanjutan."
+      />
 
       <AppCard>
-        <AppText variant="subheading">Alur belajar</AppText>
+        <View style={styles.headerRow}>
+          <AppText variant="subheading">Alur Belajar</AppText>
+          <StatusBadge label="Step by step" tone="primary" />
+        </View>
 
         <AppText color={colors.textMuted} style={styles.text}>
           1. Belajar huruf Jepang{"\n"}
@@ -38,21 +42,24 @@ export function SoloScreen({ navigation }: Props) {
       </AppCard>
 
       <AppCard>
-        <AppText variant="subheading">Fitur yang akan dikembangkan</AppText>
+        <AppText variant="subheading">Jenis Aktivitas</AppText>
 
         <AppText color={colors.textMuted} style={styles.text}>
-          Kosakata, tombol speaker, latihan listening, rekaman suara, grammar,
-          reading, kuis, dan sistem progress.
+          Kosakata, tombol speaker, listening, rekaman suara, grammar, reading,
+          kuis, review, dan sistem progress.
         </AppText>
+
+        <StatusBadge label="Akan dikembangkan bertahap" tone="muted" />
       </AppCard>
-    </ScrollView>
+    </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: spacing.lg,
-    gap: spacing.lg,
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    gap: spacing.md,
   },
   text: {
     marginTop: spacing.sm,

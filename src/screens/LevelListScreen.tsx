@@ -1,13 +1,16 @@
 import React from "react";
-import { Alert, Pressable, ScrollView, StyleSheet, View } from "react-native";
+import { Alert, Pressable, StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 import { AppCard } from "../components/AppCard";
 import { AppText } from "../components/AppText";
+import { ScreenContainer } from "../components/ScreenContainer";
+import { SectionHeader } from "../components/SectionHeader";
+import { StatusBadge } from "../components/StatusBadge";
 import { curriculum } from "../data/curriculum";
+import { RootStackParamList } from "../navigation/types";
 import { colors } from "../theme/colors";
 import { spacing } from "../theme/spacing";
-import { RootStackParamList } from "../navigation/types";
 
 type Props = NativeStackScreenProps<RootStackParamList, "LevelList">;
 
@@ -25,12 +28,11 @@ export function LevelListScreen({ navigation }: Props) {
   }
 
   return (
-    <ScrollView contentContainerStyle={styles.container}>
-      <AppText variant="heading">Pilih Level Belajar</AppText>
-
-      <AppText color={colors.textMuted}>
-        Untuk MVP pertama, kita mulai dari Belajar Huruf Jepang.
-      </AppText>
+    <ScreenContainer>
+      <SectionHeader
+        title="Pilih Level Belajar"
+        subtitle="Untuk MVP pertama, kita mulai dari Belajar Huruf Jepang."
+      />
 
       <View style={styles.list}>
         {curriculum.map((level) => (
@@ -41,17 +43,14 @@ export function LevelListScreen({ navigation }: Props) {
           >
             <AppCard style={level.isLocked ? styles.lockedCard : undefined}>
               <View style={styles.cardHeader}>
-                <AppText variant="subheading">{level.title}</AppText>
+                <AppText variant="subheading" style={styles.title}>
+                  {level.title}
+                </AppText>
 
-                {level.isLocked ? (
-                  <AppText variant="small" color={colors.textMuted}>
-                    Segera
-                  </AppText>
-                ) : (
-                  <AppText variant="small" color={colors.success}>
-                    Tersedia
-                  </AppText>
-                )}
+                <StatusBadge
+                  label={level.isLocked ? "Segera" : "Tersedia"}
+                  tone={level.isLocked ? "locked" : "success"}
+                />
               </View>
 
               <AppText color={colors.textMuted} style={styles.subtitle}>
@@ -65,15 +64,11 @@ export function LevelListScreen({ navigation }: Props) {
           </Pressable>
         ))}
       </View>
-    </ScrollView>
+    </ScreenContainer>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: spacing.lg,
-    gap: spacing.lg,
-  },
   list: {
     gap: spacing.md,
   },
@@ -87,6 +82,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     gap: spacing.md,
+  },
+  title: {
+    flex: 1,
   },
   subtitle: {
     marginTop: spacing.xs,
