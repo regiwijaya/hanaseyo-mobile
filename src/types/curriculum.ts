@@ -1,4 +1,8 @@
-export type ActivityType = "vocabulary" | "quiz" | "pronunciation";
+export type ActivityType =
+  | "vocabulary"
+  | "quiz"
+  | "pronunciation"
+  | "listening";
 
 export type VocabularyActivity = {
   id: string;
@@ -32,10 +36,22 @@ export type PronunciationActivity = {
   audioText: string;
 };
 
+export type ListeningActivity = {
+  id: string;
+  type: "listening";
+  title: string;
+  instruction: string;
+  audioText: string;
+  choices: string[];
+  correctAnswer: string;
+  explanation?: string;
+};
+
 export type LessonActivity =
   | VocabularyActivity
   | QuizActivity
-  | PronunciationActivity;
+  | PronunciationActivity
+  | ListeningActivity;
 
 export type Lesson = {
   id: string;

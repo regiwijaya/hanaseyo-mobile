@@ -1,6 +1,7 @@
 import React from "react";
 
 import { LessonActivity } from "../../types/curriculum";
+import { ListeningActivity } from "./ListeningActivity";
 import { PronunciationActivity } from "./PronunciationActivity";
 import { QuizActivity } from "./QuizActivity";
 import { VocabularyActivity } from "./VocabularyActivity";
@@ -22,6 +23,16 @@ export function ActivityRenderer({
 
   if (activity.type === "pronunciation") {
     return <PronunciationActivity activity={activity} />;
+  }
+
+  if (activity.type === "listening") {
+    return (
+      <ListeningActivity
+        activity={activity}
+        selectedAnswer={selectedAnswer}
+        onSelectAnswer={onSelectAnswer}
+      />
+    );
   }
 
   if (activity.type === "quiz") {

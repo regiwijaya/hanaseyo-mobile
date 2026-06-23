@@ -12,7 +12,7 @@ export const curriculum: CurriculumLevel[] = [
         id: "hiragana-a-row",
         title: "Hiragana あいうえお",
         description: "Mengenal lima huruf pertama dalam Hiragana.",
-        estimatedMinutes: 6,
+        estimatedMinutes: 7,
         activities: [
           {
             id: "vocab-a",
@@ -81,6 +81,28 @@ export const curriculum: CurriculumLevel[] = [
             audioText: "あいうえお",
           },
           {
+            id: "listening-a",
+            type: "listening",
+            title: "Dengarkan bunyi huruf",
+            instruction:
+              "Tekan tombol speaker, lalu pilih huruf yang Anda dengar.",
+            audioText: "あ",
+            choices: ["あ", "い", "う", "え"],
+            correctAnswer: "あ",
+            explanation: "Bunyi yang diputar adalah あ, dibaca 'a'.",
+          },
+          {
+            id: "listening-o",
+            type: "listening",
+            title: "Dengarkan bunyi huruf",
+            instruction:
+              "Tekan tombol speaker, lalu pilih huruf yang Anda dengar.",
+            audioText: "お",
+            choices: ["え", "お", "い", "う"],
+            correctAnswer: "お",
+            explanation: "Bunyi yang diputar adalah お, dibaca 'o'.",
+          },
+          {
             id: "quiz-a",
             type: "quiz",
             question: 'Huruf mana yang dibaca "a"?',
@@ -102,7 +124,7 @@ export const curriculum: CurriculumLevel[] = [
         id: "hiragana-ka-row",
         title: "Hiragana かきくけこ",
         description: "Mengenal baris K dalam Hiragana.",
-        estimatedMinutes: 7,
+        estimatedMinutes: 8,
         activities: [
           {
             id: "vocab-ka",
@@ -169,6 +191,28 @@ export const curriculum: CurriculumLevel[] = [
             targetReading: "ka・ki・ku・ke・ko",
             meaning: "Latihan membaca baris K dalam Hiragana.",
             audioText: "かきくけこ",
+          },
+          {
+            id: "listening-ka",
+            type: "listening",
+            title: "Dengarkan bunyi huruf",
+            instruction:
+              "Tekan tombol speaker, lalu pilih huruf yang Anda dengar.",
+            audioText: "か",
+            choices: ["か", "き", "く", "け"],
+            correctAnswer: "か",
+            explanation: "Bunyi yang diputar adalah か, dibaca 'ka'.",
+          },
+          {
+            id: "listening-ko",
+            type: "listening",
+            title: "Dengarkan bunyi huruf",
+            instruction:
+              "Tekan tombol speaker, lalu pilih huruf yang Anda dengar.",
+            audioText: "こ",
+            choices: ["け", "く", "こ", "き"],
+            correctAnswer: "こ",
+            explanation: "Bunyi yang diputar adalah こ, dibaca 'ko'.",
           },
           {
             id: "quiz-ka",
