@@ -1,8 +1,9 @@
 import React from "react";
 
 import { LessonActivity } from "../../types/curriculum";
-import { VocabularyActivity } from "./VocabularyActivity";
+import { PronunciationActivity } from "./PronunciationActivity";
 import { QuizActivity } from "./QuizActivity";
+import { VocabularyActivity } from "./VocabularyActivity";
 
 type ActivityRendererProps = {
   activity: LessonActivity;
@@ -17,6 +18,10 @@ export function ActivityRenderer({
 }: ActivityRendererProps) {
   if (activity.type === "vocabulary") {
     return <VocabularyActivity activity={activity} />;
+  }
+
+  if (activity.type === "pronunciation") {
+    return <PronunciationActivity activity={activity} />;
   }
 
   if (activity.type === "quiz") {

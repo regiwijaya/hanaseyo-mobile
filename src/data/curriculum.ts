@@ -12,7 +12,7 @@ export const curriculum: CurriculumLevel[] = [
         id: "hiragana-a-row",
         title: "Hiragana あいうえお",
         description: "Mengenal lima huruf pertama dalam Hiragana.",
-        estimatedMinutes: 5,
+        estimatedMinutes: 6,
         activities: [
           {
             id: "vocab-a",
@@ -70,6 +70,17 @@ export const curriculum: CurriculumLevel[] = [
             audioText: "お",
           },
           {
+            id: "pronunciation-a-row",
+            type: "pronunciation",
+            title: "Ucapkan あいうえお",
+            instruction:
+              "Dengarkan contoh, lalu rekam suara Anda membaca lima huruf ini secara berurutan.",
+            targetText: "あ い う え お",
+            targetReading: "a・i・u・e・o",
+            meaning: "Latihan membaca baris vokal Hiragana.",
+            audioText: "あいうえお",
+          },
+          {
             id: "quiz-a",
             type: "quiz",
             question: 'Huruf mana yang dibaca "a"?',
@@ -91,7 +102,7 @@ export const curriculum: CurriculumLevel[] = [
         id: "hiragana-ka-row",
         title: "Hiragana かきくけこ",
         description: "Mengenal baris K dalam Hiragana.",
-        estimatedMinutes: 6,
+        estimatedMinutes: 7,
         activities: [
           {
             id: "vocab-ka",
@@ -147,6 +158,17 @@ export const curriculum: CurriculumLevel[] = [
             exampleReading: "koko",
             exampleMeaning: "di sini",
             audioText: "こ",
+          },
+          {
+            id: "pronunciation-ka-row",
+            type: "pronunciation",
+            title: "Ucapkan かきくけこ",
+            instruction:
+              "Dengarkan contoh, lalu rekam suara Anda membaca baris K Hiragana.",
+            targetText: "か き く け こ",
+            targetReading: "ka・ki・ku・ke・ko",
+            meaning: "Latihan membaca baris K dalam Hiragana.",
+            audioText: "かきくけこ",
           },
           {
             id: "quiz-ka",
