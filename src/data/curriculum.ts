@@ -1,0 +1,131 @@
+import { CurriculumLevel, Lesson } from "../types/curriculum";
+
+export const curriculum: CurriculumLevel[] = [
+  {
+    id: "letters",
+    title: "Belajar Huruf Jepang",
+    subtitle: "Mulai dari Hiragana, Katakana, dan Kanji dasar",
+    description:
+      "Tahap pertama untuk membangun fondasi membaca bahasa Jepang dari nol.",
+    lessons: [
+      {
+        id: "hiragana-a-row",
+        title: "Hiragana あいうえお",
+        description: "Mengenal lima huruf pertama dalam Hiragana.",
+        estimatedMinutes: 5,
+        activities: [
+          {
+            id: "vocab-a",
+            type: "vocabulary",
+            character: "あ",
+            reading: "a",
+            meaning: "Bunyi huruf: a",
+            example: "あさ",
+            exampleReading: "asa",
+            exampleMeaning: "pagi",
+            audioText: "あ",
+          },
+          {
+            id: "vocab-i",
+            type: "vocabulary",
+            character: "い",
+            reading: "i",
+            meaning: "Bunyi huruf: i",
+            example: "いぬ",
+            exampleReading: "inu",
+            exampleMeaning: "anjing",
+            audioText: "い",
+          },
+          {
+            id: "vocab-u",
+            type: "vocabulary",
+            character: "う",
+            reading: "u",
+            meaning: "Bunyi huruf: u",
+            example: "うみ",
+            exampleReading: "umi",
+            exampleMeaning: "laut",
+            audioText: "う",
+          },
+          {
+            id: "vocab-e",
+            type: "vocabulary",
+            character: "え",
+            reading: "e",
+            meaning: "Bunyi huruf: e",
+            example: "えき",
+            exampleReading: "eki",
+            exampleMeaning: "stasiun",
+            audioText: "え",
+          },
+          {
+            id: "vocab-o",
+            type: "vocabulary",
+            character: "お",
+            reading: "o",
+            meaning: "Bunyi huruf: o",
+            example: "おに",
+            exampleReading: "oni",
+            exampleMeaning: "raksasa / oni",
+            audioText: "お",
+          },
+          {
+            id: "quiz-a",
+            type: "quiz",
+            question: 'Huruf mana yang dibaca "a"?',
+            choices: ["あ", "い", "う", "え"],
+            correctAnswer: "あ",
+            explanation: "あ dibaca 'a'.",
+          },
+          {
+            id: "quiz-o",
+            type: "quiz",
+            question: 'Huruf mana yang dibaca "o"?',
+            choices: ["え", "お", "い", "う"],
+            correctAnswer: "お",
+            explanation: "お dibaca 'o'.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: "basic",
+    title: "Level Dasar",
+    subtitle: "Kosakata dan pola kalimat dasar",
+    description:
+      "Belajar salam, perkenalan, angka, waktu, dan kalimat dasar bahasa Jepang.",
+    isLocked: true,
+    lessons: [],
+  },
+  {
+    id: "intermediate",
+    title: "Level Menengah",
+    subtitle: "Percakapan dan tata bahasa lanjutan",
+    description:
+      "Belajar memahami kalimat lebih panjang, percakapan sehari-hari, dan bacaan pendek.",
+    isLocked: true,
+    lessons: [],
+  },
+  {
+    id: "advanced",
+    title: "Level Lanjutan",
+    subtitle: "Bacaan, listening, dan ekspresi natural",
+    description:
+      "Belajar bahasa Jepang yang lebih natural untuk studi, kerja, dan kehidupan di Jepang.",
+    isLocked: true,
+    lessons: [],
+  },
+];
+
+export function getLevelById(levelId: string): CurriculumLevel | undefined {
+  return curriculum.find((level) => level.id === levelId);
+}
+
+export function getLessonById(
+  levelId: string,
+  lessonId: string
+): Lesson | undefined {
+  const level = getLevelById(levelId);
+  return level?.lessons.find((lesson) => lesson.id === lessonId);
+}
