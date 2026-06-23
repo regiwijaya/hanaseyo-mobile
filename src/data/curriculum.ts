@@ -12,7 +12,7 @@ export const curriculum: CurriculumLevel[] = [
         id: "hiragana-a-row",
         title: "Hiragana あいうえお",
         description: "Mengenal lima huruf pertama dalam Hiragana.",
-        estimatedMinutes: 7,
+        estimatedMinutes: 8,
         activities: [
           {
             id: "vocab-a",
@@ -118,13 +118,52 @@ export const curriculum: CurriculumLevel[] = [
             correctAnswer: "お",
             explanation: "お dibaca 'o'.",
           },
+          {
+            id: "review-a-row",
+            type: "review",
+            title: "Review あいうえお",
+            instruction:
+              "Baca ulang huruf dan contoh kata berikut. Tekan tombol dengar untuk menguatkan ingatan.",
+            items: [
+              {
+                label: "あ",
+                reading: "a",
+                meaning: "あさ = pagi",
+                audioText: "あ",
+              },
+              {
+                label: "い",
+                reading: "i",
+                meaning: "いぬ = anjing",
+                audioText: "い",
+              },
+              {
+                label: "う",
+                reading: "u",
+                meaning: "うみ = laut",
+                audioText: "う",
+              },
+              {
+                label: "え",
+                reading: "e",
+                meaning: "えき = stasiun",
+                audioText: "え",
+              },
+              {
+                label: "お",
+                reading: "o",
+                meaning: "おに = raksasa / oni",
+                audioText: "お",
+              },
+            ],
+          },
         ],
       },
       {
         id: "hiragana-ka-row",
         title: "Hiragana かきくけこ",
         description: "Mengenal baris K dalam Hiragana.",
-        estimatedMinutes: 8,
+        estimatedMinutes: 9,
         activities: [
           {
             id: "vocab-ka",
@@ -229,6 +268,45 @@ export const curriculum: CurriculumLevel[] = [
             choices: ["け", "く", "こ", "き"],
             correctAnswer: "こ",
             explanation: "こ dibaca 'ko'.",
+          },
+          {
+            id: "review-ka-row",
+            type: "review",
+            title: "Review かきくけこ",
+            instruction:
+              "Baca ulang huruf baris K dan contoh katanya. Tekan tombol dengar untuk menguatkan ingatan.",
+            items: [
+              {
+                label: "か",
+                reading: "ka",
+                meaning: "かさ = payung",
+                audioText: "か",
+              },
+              {
+                label: "き",
+                reading: "ki",
+                meaning: "き = pohon",
+                audioText: "き",
+              },
+              {
+                label: "く",
+                reading: "ku",
+                meaning: "くち = mulut",
+                audioText: "く",
+              },
+              {
+                label: "け",
+                reading: "ke",
+                meaning: "けさ = tadi pagi",
+                audioText: "け",
+              },
+              {
+                label: "こ",
+                reading: "ko",
+                meaning: "ここ = di sini",
+                audioText: "こ",
+              },
+            ],
           },
         ],
       },

@@ -55,6 +55,11 @@ export function ActivityScreen({ navigation, route }: Props) {
   const isLastActivity = currentIndex === activeLesson.activities.length - 1;
   const progress = (currentIndex + 1) / activeLesson.activities.length;
 
+  const activityNeedsAnswer =
+    currentActivity.type === "quiz" || currentActivity.type === "listening";
+
+  const isNextDisabled = activityNeedsAnswer && !selectedAnswer;
+
   function goToPreviousActivity() {
     if (isFirstActivity) {
       return;
@@ -65,6 +70,10 @@ export function ActivityScreen({ navigation, route }: Props) {
   }
 
   async function goToNextActivity() {
+    if (isNextDisabled) {
+      return;
+    }
+
     if (isLastActivity) {
       await markLessonCompleted(activeLesson.id);
 
@@ -100,6 +109,10 @@ export function ActivityScreen({ navigation, route }: Props) {
       <ActivityFooter
         isFirstActivity={isFirstActivity}
         isLastActivity={isLastActivity}
+        isNextDisabled={isNextDisabled}
+        nextDisabledMessage={
+          isNextDisabled ? "Pilih jawaban terlebih dahulu untuk lanjut." : ""
+        }
         onPrevious={goToPreviousActivity}
         onNext={goToNextActivity}
       />

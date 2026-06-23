@@ -2,7 +2,8 @@ export type ActivityType =
   | "vocabulary"
   | "quiz"
   | "pronunciation"
-  | "listening";
+  | "listening"
+  | "review";
 
 export type VocabularyActivity = {
   id: string;
@@ -47,11 +48,27 @@ export type ListeningActivity = {
   explanation?: string;
 };
 
+export type ReviewItem = {
+  label: string;
+  reading: string;
+  meaning?: string;
+  audioText?: string;
+};
+
+export type ReviewActivity = {
+  id: string;
+  type: "review";
+  title: string;
+  instruction: string;
+  items: ReviewItem[];
+};
+
 export type LessonActivity =
   | VocabularyActivity
   | QuizActivity
   | PronunciationActivity
-  | ListeningActivity;
+  | ListeningActivity
+  | ReviewActivity;
 
 export type Lesson = {
   id: string;

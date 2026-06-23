@@ -4,6 +4,7 @@ import { LessonActivity } from "../../types/curriculum";
 import { ListeningActivity } from "./ListeningActivity";
 import { PronunciationActivity } from "./PronunciationActivity";
 import { QuizActivity } from "./QuizActivity";
+import { ReviewActivity } from "./ReviewActivity";
 import { VocabularyActivity } from "./VocabularyActivity";
 
 type ActivityRendererProps = {
@@ -43,6 +44,10 @@ export function ActivityRenderer({
         onSelectAnswer={onSelectAnswer}
       />
     );
+  }
+
+  if (activity.type === "review") {
+    return <ReviewActivity activity={activity} />;
   }
 
   return null;
