@@ -7,6 +7,7 @@ import { HiraganaChartScreen } from "../screens/HiraganaChartScreen";
 import { HomeScreen } from "../screens/HomeScreen";
 import { KatakanaChartScreen } from "../screens/KatakanaChartScreen";
 import { LessonListScreen } from "../screens/LessonListScreen";
+import { LettersHomeScreen } from "../screens/LettersHomeScreen";
 import { LevelListScreen } from "../screens/LevelListScreen";
 import { SoloScreen } from "../screens/SoloScreen";
 import { colors } from "../theme/colors";
@@ -49,6 +50,12 @@ export function AppNavigator() {
           name="LevelList"
           component={LevelListScreen}
           options={{ title: "Pilih Level" }}
+        />
+
+        <Stack.Screen
+          name="LettersHome"
+          component={LettersHomeScreen}
+          options={{ title: "Belajar Huruf Jepang" }}
         />
 
         <Stack.Screen
