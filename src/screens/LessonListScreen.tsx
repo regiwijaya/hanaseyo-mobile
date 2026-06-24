@@ -3,6 +3,7 @@ import { Pressable, StyleSheet, View } from "react-native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 import { useFocusEffect } from "@react-navigation/native";
 
+import { AppButton } from "../components/AppButton";
 import { AppCard } from "../components/AppCard";
 import { AppText } from "../components/AppText";
 import { ProgressBar } from "../components/ProgressBar";
@@ -48,6 +49,28 @@ export function LessonListScreen({ navigation, route }: Props) {
         <AppText variant="heading">{level.title}</AppText>
         <AppText color={colors.textMuted}>{level.description}</AppText>
       </View>
+
+      {levelId === "letters" ? (
+        <AppCard>
+          <View style={styles.cardHeader}>
+            <View style={styles.lessonTitleWrapper}>
+              <AppText variant="subheading">Tabel Hiragana</AppText>
+              <AppText color={colors.textMuted} style={styles.description}>
+                Lihat semua Hiragana dasar dalam satu tabel dan dengarkan bunyi
+                setiap huruf.
+              </AppText>
+            </View>
+
+            <StatusBadge label="Referensi" tone="primary" />
+          </View>
+
+          <AppButton
+            title="Buka Tabel Hiragana"
+            variant="secondary"
+            onPress={() => navigation.navigate("HiraganaChart")}
+          />
+        </AppCard>
+      ) : null}
 
       <AppCard>
         <View style={styles.cardHeader}>

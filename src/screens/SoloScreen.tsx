@@ -35,10 +35,18 @@ export function SoloScreen({ navigation }: Props) {
           4. Level lanjutan
         </AppText>
 
-        <AppButton
-          title="Pilih Level"
-          onPress={() => navigation.navigate("LevelList")}
-        />
+        <View style={styles.buttonGroup}>
+          <AppButton
+            title="Pilih Level"
+            onPress={() => navigation.navigate("LevelList")}
+          />
+
+          <AppButton
+            title="Lihat Tabel Hiragana"
+            variant="secondary"
+            onPress={() => navigation.navigate("HiraganaChart")}
+          />
+        </View>
       </AppCard>
 
       <AppCard>
@@ -64,5 +72,8 @@ const styles = StyleSheet.create({
   text: {
     marginTop: spacing.sm,
     marginBottom: spacing.lg,
+  },
+  buttonGroup: {
+    gap: spacing.md,
   },
 });
