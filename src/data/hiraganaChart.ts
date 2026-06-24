@@ -60,6 +60,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "ta-row",
     title: "た行",
     subtitle: "Baris T",
+    lessonId: "hiragana-ta-row",
     cells: [
       { kana: "た", reading: "ta", audioText: "た" },
       { kana: "ち", reading: "chi", audioText: "ち" },
