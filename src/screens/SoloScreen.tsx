@@ -46,6 +46,12 @@ export function SoloScreen({ navigation }: Props) {
             variant="secondary"
             onPress={() => navigation.navigate("HiraganaChart")}
           />
+
+          <AppButton
+            title="Lihat Tabel Katakana"
+            variant="secondary"
+            onPress={() => navigation.navigate("KatakanaChart")}
+          />
         </View>
       </AppCard>
 

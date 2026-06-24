@@ -51,25 +51,47 @@ export function LessonListScreen({ navigation, route }: Props) {
       </View>
 
       {levelId === "letters" ? (
-        <AppCard>
-          <View style={styles.cardHeader}>
-            <View style={styles.lessonTitleWrapper}>
-              <AppText variant="subheading">Tabel Hiragana</AppText>
-              <AppText color={colors.textMuted} style={styles.description}>
-                Lihat semua Hiragana dasar dalam satu tabel dan dengarkan bunyi
-                setiap huruf.
-              </AppText>
+        <View style={styles.referenceList}>
+          <AppCard>
+            <View style={styles.cardHeader}>
+              <View style={styles.lessonTitleWrapper}>
+                <AppText variant="subheading">Tabel Hiragana</AppText>
+                <AppText color={colors.textMuted} style={styles.description}>
+                  Lihat semua Hiragana dasar dalam satu tabel dan dengarkan
+                  bunyi setiap huruf.
+                </AppText>
+              </View>
+
+              <StatusBadge label="Referensi" tone="primary" />
             </View>
 
-            <StatusBadge label="Referensi" tone="primary" />
-          </View>
+            <AppButton
+              title="Buka Tabel Hiragana"
+              variant="secondary"
+              onPress={() => navigation.navigate("HiraganaChart")}
+            />
+          </AppCard>
 
-          <AppButton
-            title="Buka Tabel Hiragana"
-            variant="secondary"
-            onPress={() => navigation.navigate("HiraganaChart")}
-          />
-        </AppCard>
+          <AppCard>
+            <View style={styles.cardHeader}>
+              <View style={styles.lessonTitleWrapper}>
+                <AppText variant="subheading">Tabel Katakana</AppText>
+                <AppText color={colors.textMuted} style={styles.description}>
+                  Lihat semua Katakana dasar dalam satu tabel dan dengarkan
+                  bunyi setiap huruf.
+                </AppText>
+              </View>
+
+              <StatusBadge label="Referensi" tone="primary" />
+            </View>
+
+            <AppButton
+              title="Buka Tabel Katakana"
+              variant="secondary"
+              onPress={() => navigation.navigate("KatakanaChart")}
+            />
+          </AppCard>
+        </View>
       ) : null}
 
       <AppCard>
@@ -136,6 +158,9 @@ export function LessonListScreen({ navigation, route }: Props) {
 const styles = StyleSheet.create({
   header: {
     gap: spacing.sm,
+  },
+  referenceList: {
+    gap: spacing.md,
   },
   progressText: {
     marginTop: spacing.xs,

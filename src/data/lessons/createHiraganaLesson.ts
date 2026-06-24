@@ -8,7 +8,7 @@ import {
   VocabularyActivity,
 } from "../../types/curriculum";
 
-type HiraganaLessonItem = {
+type KanaLessonItem = {
   id: string;
   kana: string;
   reading: string;
@@ -18,7 +18,7 @@ type HiraganaLessonItem = {
   note?: string;
 };
 
-type CreateHiraganaLessonInput = {
+type CreateKanaLessonInput = {
   id: string;
   title: string;
   description: string;
@@ -28,20 +28,20 @@ type CreateHiraganaLessonInput = {
   pronunciationMeaning: string;
   reviewTitle: string;
   reviewInstruction: string;
-  items: HiraganaLessonItem[];
+  items: KanaLessonItem[];
 };
 
-function getChoices(items: HiraganaLessonItem[]): string[] {
+function getChoices(items: KanaLessonItem[]): string[] {
   return items.map((item) => item.kana);
 }
 
-function getUniqueQuizItems(items: HiraganaLessonItem[]): HiraganaLessonItem[] {
+function getUniqueQuizItems(items: KanaLessonItem[]): KanaLessonItem[] {
   const firstItem = items[0];
   const secondItem = items[1] ?? firstItem;
   const lastItem = items[items.length - 1] ?? firstItem;
 
   const selectedItems = [secondItem, lastItem].filter(Boolean);
-  const uniqueItems: HiraganaLessonItem[] = [];
+  const uniqueItems: KanaLessonItem[] = [];
 
   selectedItems.forEach((item) => {
     if (!uniqueItems.some((uniqueItem) => uniqueItem.id === item.id)) {
@@ -52,14 +52,12 @@ function getUniqueQuizItems(items: HiraganaLessonItem[]): HiraganaLessonItem[] {
   return uniqueItems;
 }
 
-function getUniqueListeningItems(
-  items: HiraganaLessonItem[]
-): HiraganaLessonItem[] {
+function getUniqueListeningItems(items: KanaLessonItem[]): KanaLessonItem[] {
   const firstItem = items[0];
   const lastItem = items[items.length - 1] ?? firstItem;
 
   const selectedItems = [firstItem, lastItem].filter(Boolean);
-  const uniqueItems: HiraganaLessonItem[] = [];
+  const uniqueItems: KanaLessonItem[] = [];
 
   selectedItems.forEach((item) => {
     if (!uniqueItems.some((uniqueItem) => uniqueItem.id === item.id)) {
@@ -81,7 +79,7 @@ export function createHiraganaLesson({
   reviewTitle,
   reviewInstruction,
   items,
-}: CreateHiraganaLessonInput): Lesson {
+}: CreateKanaLessonInput): Lesson {
   const choices = getChoices(items);
 
   const vocabularyActivities: VocabularyActivity[] = items.map((item) => ({
@@ -160,3 +158,5 @@ export function createHiraganaLesson({
     activities,
   };
 }
+
+export const createKanaLesson = createHiraganaLesson;

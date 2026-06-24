@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ActivityScreen } from "../screens/ActivityScreen";
 import { HiraganaChartScreen } from "../screens/HiraganaChartScreen";
 import { HomeScreen } from "../screens/HomeScreen";
+import { KatakanaChartScreen } from "../screens/KatakanaChartScreen";
 import { LessonListScreen } from "../screens/LessonListScreen";
 import { LevelListScreen } from "../screens/LevelListScreen";
 import { SoloScreen } from "../screens/SoloScreen";
@@ -66,6 +67,12 @@ export function AppNavigator() {
           name="HiraganaChart"
           component={HiraganaChartScreen}
           options={{ title: "Tabel Hiragana" }}
+        />
+
+        <Stack.Screen
+          name="KatakanaChart"
+          component={KatakanaChartScreen}
+          options={{ title: "Tabel Katakana" }}
         />
       </Stack.Navigator>
     </NavigationContainer>

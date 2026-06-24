@@ -10,4 +10,5 @@ export type RootStackParamList = {
     lessonId: string;
   };
   HiraganaChart: undefined;
+  KatakanaChart: undefined;
 };
