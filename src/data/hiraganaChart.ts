@@ -73,6 +73,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "na-row",
     title: "な行",
     subtitle: "Baris N",
+    lessonId: "hiragana-na-row",
     cells: [
       { kana: "な", reading: "na", audioText: "な" },
       { kana: "に", reading: "ni", audioText: "に" },
@@ -85,6 +86,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "ha-row",
     title: "は行",
     subtitle: "Baris H",
+    lessonId: "hiragana-ha-row",
     cells: [
       { kana: "は", reading: "ha", audioText: "は" },
       { kana: "ひ", reading: "hi", audioText: "ひ" },
@@ -97,6 +99,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "ma-row",
     title: "ま行",
     subtitle: "Baris M",
+    lessonId: "hiragana-ma-row",
     cells: [
       { kana: "ま", reading: "ma", audioText: "ま" },
       { kana: "み", reading: "mi", audioText: "み" },
@@ -109,6 +112,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "ya-row",
     title: "や行",
     subtitle: "Baris Y",
+    lessonId: "hiragana-ya-row",
     cells: [
       { kana: "や", reading: "ya", audioText: "や" },
       null,
@@ -121,6 +125,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "ra-row",
     title: "ら行",
     subtitle: "Baris R",
+    lessonId: "hiragana-ra-row",
     cells: [
       { kana: "ら", reading: "ra", audioText: "ら" },
       { kana: "り", reading: "ri", audioText: "り" },
@@ -133,6 +138,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "wa-row",
     title: "わ行",
     subtitle: "Baris W",
+    lessonId: "hiragana-wa-n-row",
     cells: [
       { kana: "わ", reading: "wa", audioText: "わ" },
       null,
@@ -145,6 +151,7 @@ export const hiraganaChartRows: HiraganaChartRow[] = [
     id: "n-row",
     title: "ん",
     subtitle: "Konsonan akhir",
+    lessonId: "hiragana-wa-n-row",
     cells: [
       null,
       null,
