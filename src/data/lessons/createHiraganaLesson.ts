@@ -1,6 +1,7 @@
 import {
   Lesson,
   LessonActivity,
+  LessonCategory,
   ListeningActivity,
   PronunciationActivity,
   QuizActivity,
@@ -23,6 +24,7 @@ type CreateKanaLessonInput = {
   title: string;
   description: string;
   estimatedMinutes: number;
+  category?: LessonCategory;
   pronunciationTitle: string;
   pronunciationInstruction: string;
   pronunciationMeaning: string;
@@ -30,6 +32,18 @@ type CreateKanaLessonInput = {
   reviewInstruction: string;
   items: KanaLessonItem[];
 };
+
+function getCategoryFromId(id: string): LessonCategory {
+  if (id.startsWith("hiragana-")) {
+    return "hiragana";
+  }
+
+  if (id.startsWith("katakana-")) {
+    return "katakana";
+  }
+
+  return "general";
+}
 
 function getChoices(items: KanaLessonItem[]): string[] {
   return items.map((item) => item.kana);
@@ -73,6 +87,7 @@ export function createHiraganaLesson({
   title,
   description,
   estimatedMinutes,
+  category,
   pronunciationTitle,
   pronunciationInstruction,
   pronunciationMeaning,
@@ -155,6 +170,7 @@ export function createHiraganaLesson({
     title,
     description,
     estimatedMinutes,
+    category: category ?? getCategoryFromId(id),
     activities,
   };
 }

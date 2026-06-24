@@ -5,6 +5,14 @@ export type ActivityType =
   | "listening"
   | "review";
 
+export type LessonCategory =
+  | "hiragana"
+  | "katakana"
+  | "kanji"
+  | "vocabulary"
+  | "grammar"
+  | "general";
+
 export type VocabularyActivity = {
   id: string;
   type: "vocabulary";
@@ -75,6 +83,7 @@ export type Lesson = {
   title: string;
   description: string;
   estimatedMinutes: number;
+  category?: LessonCategory;
   activities: LessonActivity[];
 };
 
