@@ -1,5 +1,6 @@
 import { CurriculumLevel, Lesson } from "../types/curriculum";
 import { hiraganaLessons } from "./lessons/hiraganaLessons";
+import { hiraganaYouonLessons } from "./lessons/hiraganaYouonLessons";
 import { katakanaLessons } from "./lessons/katakanaLessons";
 
 export const curriculum: CurriculumLevel[] = [
@@ -9,7 +10,7 @@ export const curriculum: CurriculumLevel[] = [
     subtitle: "Mulai dari Hiragana, Katakana, dan Kanji dasar",
     description:
       "Tahap pertama untuk membangun fondasi membaca bahasa Jepang dari nol.",
-    lessons: [...hiraganaLessons, ...katakanaLessons],
+    lessons: [...hiraganaLessons, ...hiraganaYouonLessons, ...katakanaLessons],
   },
   {
     id: "basic",
